@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DurantoBus.Models.Station>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary shadow">Create New</a>
+</p>
+<table class="table table-bordered table-light shadow">
+    <thead class="table-hover table-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StationName)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationName)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-outline-primary shadow" asp-route-id="@item.StationId">Edit</a> |
+                
+                    <a asp-action="Delete" class="btn btn-outline-danger shadow" asp-route-id="@item.StationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
